@@ -28,50 +28,53 @@ GRUB_TIMEOUT=-1：
 
 改好存檔應該就ok了
 ～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～
-以下英文
-.
-.
-.
-.
-.
-.
-.
-.
+以下 我改的檔案給大家留存一個原檔以防改錯
 
-when you start your computer with windows and ubuntu, you'll get in the grub system, i want to help  every one to change the system's auto select time or change the recommand first system to select
+.
+.
+.
+.
+.
+.
+.
+.
+# If you change this file, run 'update-grub' afterwards to update
+# /boot/grub/grub.cfg.
+# For full documentation of the options in this file, see:
+#   info -f grub -n 'Simple configuration'
 
-1. go to /etc/default open grub
-2. You'll see
-
-GRUB_DEFAULT=0
+GRUB_DEFAULT=4
 GRUB_TIMEOUT_STYLE=menu
 GRUB_TIMEOUT=-1
 GRUB_DISTRIBUTOR=`( . /etc/os-release; echo ${NAME:-Ubuntu} ) 2>/dev/null || echo Ubuntu`
 GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
 GRUB_CMDLINE_LINUX=""
 
+# If your computer has multiple operating systems installed, then you
+# probably want to run os-prober. However, if your computer is a host
+# for guest OSes installed via LVM or raw disk devices, running
+# os-prober can cause damage to those guest OSes as it mounts
+# filesystems to look for things.
+#GRUB_DISABLE_OS_PROBER=false
 
+# Uncomment to enable BadRAM filtering, modify to suit your needs
+# This works with Linux (no patch required) and with any kernel that obtains
+# the memory map information from GRUB (GNU Mach, kernel of FreeBSD ...)
+#GRUB_BADRAM="0x01234567,0xfefefefe,0x89abcdef,0xefefefef"
 
-3.we change
-GRUB_DEFAULT=0 
-{
-it identifies the Nth entry in the generated menu counted from zero,change the default system on grub start up page 
-my computer's ubuntu=0 windows=4. so i change 0 to 4, then it will select windows when auto
-}
+# Uncomment to disable graphical terminal
+#GRUB_TERMINAL=console
 
+# The resolution used on graphical terminal
+# note that you can use only modes which your graphic card supports via VBE
+# you can see them in real GRUB with the command `vbeinfo'
+#GRUB_GFXMODE=640x480
 
-GRUB_TIMEOUT_STYLE=menu
-{ 
-If this option is unset or set to ‘menu’, then GRUB will display the menu and then wait for the timeout set by ‘GRUB_TIMEOUT’ to expire before booting the default entry. Pressing a key interrupts the timeout.
+# Uncomment if you don't want GRUB to pass "root=UUID=xxx" parameter to Linux
+#GRUB_DISABLE_LINUX_UUID=true
 
- If this option is set to ‘countdown’ or ‘hidden’, then, before displaying the menu, GRUB will wait for the timeout set by ‘GRUB_TIMEOUT’ to expire. If ESC or F4 are pressed, or SHIFT is held down during that time, it will display the menu and wait for input. If a hotkey associated with a menu entry is pressed, it will boot the associated menu entry immediately. If the timeout expires before either of these happens, it will boot the default entry. In the ‘countdown’ case, it will show a one-line indication of the remaining time.
-}
+# Uncomment to disable generation of recovery mode menu entries
+#GRUB_DISABLE_RECOVERY="true"
 
-GRUB_TIMEOUT=-1
-{
-    Boot the default entry this many seconds after the menu is displayed, unless a key is pressed. The default is ‘5’. Set to ‘0’ to boot immediately without displaying the menu, or to ‘-1’ to wait indefinitely.
-
-    If ‘GRUB_TIMEOUT_STYLE’ is set to ‘countdown’ or ‘hidden’, the timeout is instead counted before the menu is displayed.
-}
-
-4. save and shutdown restart again
+# Uncomment to get a beep at grub start
+#GRUB_INIT_TUNE="480 440 1"
