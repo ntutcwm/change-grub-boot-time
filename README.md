@@ -3,10 +3,6 @@ when you start your computer with windows and ubuntu, you'll get in the grub sys
 
 1. go to /etc/default open grub
 2. You'll see
-   # If you change this file, run 'update-grub' afterwards to update
-# /boot/grub/grub.cfg.
-# For full documentation of the options in this file, see:
-#   info -f grub -n 'Simple configuration'
 
 GRUB_DEFAULT=0
 GRUB_TIMEOUT_STYLE=menu
