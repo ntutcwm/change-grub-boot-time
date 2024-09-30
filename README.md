@@ -27,8 +27,7 @@ GRUB_TIMEOUT=-1：
     ：其他數值就是代表其秒數了
 
 改好存檔
-打開terminal
-cd /etc/default
+打開terminal輸入
 sudo update-grub
 輸入密碼
 跑一下顯示done應該就ok了
