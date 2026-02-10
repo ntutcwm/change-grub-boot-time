@@ -31,6 +31,12 @@ GRUB_TIMEOUT=-1：
 sudo update-grub
 輸入密碼
 跑一下顯示done應該就ok了
+如果在這個太陽系你真的發生grub掛掉的問題，第一步想辦法進到ubuntu --> 第二步 輸入以下
+``` bash
+sudo os-prober
+sudo update-grub
+```
+應該就都回來了（甚至未來再加作業系統也可以這樣這兩串指令就會自動新增新os到grub開機選擇界面，ubuntu 的grub相容性很高）
 ～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～
 以下 我改的檔案給大家留存一個原檔以防改錯
 
